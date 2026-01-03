@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,4 +21,8 @@
 .my_btn{
     cursor: pointer;
     color: #ff0000;
+} */
+.aisi {
+    height: 500px;
+    width: auto;
 }

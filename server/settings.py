@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'note',
+    'corsheaders',
+
     
 ]
 
@@ -46,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 ROOT_URLCONF = 'server.urls'
 
@@ -73,10 +77,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": 'dnb6gkpnjhpdf',
-        "USER": 'uf2p02qhthp00l',
-        "PASSWORD": 'pe42c92adae60eed6ccb80cd814ab32560fcb6acbc63da0db4b13697966e55a3c',
-        "HOST": 'casrkuuedp6an1.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+        "NAME": 'de80st4rp5fpjk',
+        "USER": 'ue69ha07lna4v8',
+        "PASSWORD": 'p57d705399cc9fd8b7055eadc311c6929abb95dabb74dc9680ce43f7ab199e92c',
+        "HOST": 'ccu6unqr99fgui.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
         "PORT": '5432',
     }
 
