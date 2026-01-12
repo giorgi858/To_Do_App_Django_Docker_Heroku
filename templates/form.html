@@ -5,8 +5,14 @@
 {% block content %}
 
 {% for todo in todos %}
-    <h2>{{todo.task}}</h2>
-    <h4>{{todo.description}}</h4>
+<br/>
+<div class="p-3  rounded d-flex justify-content-between align-items-center mb-2" style=" border: 1px dashed">
+  <div>
+    <strong>{{todo.task}}</strong>
+    <p class="mb-0 text-muted">{{todo.describtion}}</p>
+  </div>
+
+</div>
 {% endfor %}
 
 {% endblock content %}

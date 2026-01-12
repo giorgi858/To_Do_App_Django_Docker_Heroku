@@ -17,12 +17,12 @@
 
 
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'myform' %}">myform</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'myform' %}">All Tasks</a>
         </li>
           <li class="nav-item">
           <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <button class="btn btn-success" type="submit">Log Out</button>
+            <button class="btn btn-outline-success" type="submit">Log Out</button>
           </form>        </li>
       </ul>
 
