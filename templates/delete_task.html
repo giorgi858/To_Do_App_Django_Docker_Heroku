@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<section> 
+<article>
+<br/><br/><br/><br/>
+<div class="row">
+<div class="column">
+
+<form  method="POST">
+    {% csrf_token %}
+    <div style="text-align: center;">
+        <h5>do you want to delete this <strong>{{object.task}}</strong></h5>
+        <input type="submit" value="Delete" class="btn btn-danger">
+            <a class="btn btn-success" href="{% url 'home' %}">Cancel</a>
+        </input>
+    </div>
+</form>
+
+</div>
+</div>
+
+</article>
+</section>
+{% endblock %}

@@ -18,28 +18,50 @@
 
 {% endif %}
 </div>
+
+
+
+<section> 
+  <article>
+  <br/>
+  <div style="text-align: center;">
+    <h4>Make a search in Google</h4>
+  </div>
+
+  <form class="d-flex mt-2" role="search" action="https://www.google.com/search" method="get">
+    <input name="q" class="form-control me-2 " type="search" placeholder="Search in Google" aria-label="Search"/>
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  </article>
+</section>
+  <br/>
+  <br/>
+
+
+
+
+
 <br/>
 <br/>
 <section>
   <article>
+      <div style="text-align: center;">
+
     <h1>Make a To do List</h1>
+      </div>
     <div class="row">
       <div class="column">
         
 <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-success w-50">Save</button>
+        <div style="text-align: center;">
+
+    <button type="submit" class="btn btn-outline-success w-50">Save</button>
+        </div>
 </form>
 <br/>
-
-    <!-- {% for formo in form %}
-        <li>
-          {{formo.task}} 
-        </li>
-    {% empty %}
-        <li>No tasks yet!</li> <!-- Shown if the list is empty -->
-    {% endfor %} -->
 
 
 
@@ -55,21 +77,22 @@
 
 
 {% for todo in todos %}
- <div class="mb-4">
-  <div class="border my-3">
-  <label class="block font-bold">{{ todo.task }}</label>
+<br/>
+<div class="p-3  rounded d-flex justify-content-between align-items-center mb-2" style=" border: 1px dashed">
+  <div>
+    <strong>{{todo.task}}</strong>
+    <p class="mb-0 text-muted">{{todo.describtion}}</p>
+  </div>
+
+</div>
+
+  <div  class="mb-3"  role="group">
+    <!-- Edit Button -->
+    <a  type="button" href="{% url 'edit_task' todo.id %}" class="btn btn-outline-primary px-4">Edit</a>
+    <!-- Delete Button -->
+    <a href="{% url 'product_delete' todo.id %}"  type="button" class="btn btn-outline-danger">Delete</a>
     <br/>
-        <label class="block font-bold">{{ todo.describtion }}</label>
-
-    <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-danger">Delete</button>
-
   </div>
-  
-    {% if todo.errors %}
-      <div class="text-red-500">{{ todo.errors }}</div>
-    {% endif %}
-  </div>
-{% endfor %}
 
+{% endfor %} 
 {% endblock %}

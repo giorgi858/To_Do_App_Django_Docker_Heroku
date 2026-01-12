@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<section> 
+  <article>
+    <br/>
+        <div style="text-align: center;">
+
+    <h1>Make a To do List</h1>
+        </div>
+
+    <div class="row">
+      <div class="column">
+       
+<form  method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div style="text-align: center;">
+
+    <button type="submit" class="btn btn-success w-50">Save</button>
+    </div>
+</form>
+</div>
+    </div>
+  </article>
+</section>
+{% endblock %}
