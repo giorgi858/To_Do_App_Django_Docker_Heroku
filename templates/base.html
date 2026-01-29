@@ -24,27 +24,8 @@
 
 </div>
 </body> 
- <!-- Main Footer Container -->
-<footer class="py-4 mt-5 bg-success-subtle" style="border-top: 3px dotted blue;">
-  <div class="container">
-    <div class="row">
 
-      <!-- Section 2: Quick Links -->
-      <div class="col-md-4 mb-1">
-        <h5>Quick Links</h5>
-        <ul class="nav flex-column">
-          <h4><li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-body-secondary">Home</a></li></h4>
-          <h4><li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0 text-body-secondary ">About</a></li></h4>
-        </ul>
-      </div>
-
-
-    <!-- Bottom Copyright -->
-    <div class="d-flex justify-content-between py-4 my-2 border-top">
-      <p>&copy; 2026 To-Do-App, Inc. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+  {% include 'footer.html' %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script src="{% static 'js/main.js' %}"></script>
