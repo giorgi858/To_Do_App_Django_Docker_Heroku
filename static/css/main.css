@@ -1,28 +1,3 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    background-color: whitesmoke;
-
-}
-.container{
-    height: 100vh;
-    margin: 40px;
-}
-.inside-container  {
-    margin: 20px;
-}
-.inside-container a {
-    color: red;
-    margin: 20px;
-    font-size: 20px;
-}
-.my_btn{
-    cursor: pointer;
-    color: #ff0000;
+/* :root {
+    --bs-body-font-family: 'Roboto', sans-serif;
 } */
-.aisi {
-    height: 500px;
-    width: auto;
-}
