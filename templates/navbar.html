@@ -3,7 +3,7 @@
 {% if user.is_authenticated %}
 <nav class="navbar navbar-expand-lg  sticky-top bg-primary" data-bs-theme="dark">
   <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" href="/">Home Page</a>
+    <a class="navbar-brand fs-4" href="/">Home Page</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,10 +17,10 @@
 
 
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'myform' %}">All Tasks</a>
+          <a class="nav-link active fs-5" aria-current="page" href="{% url 'myform' %}">All Tasks</a>
         </li>
             <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+          <a class="nav-link active fs-5" aria-current="page" href="{% url 'about' %}">About</a>
         </li>
 
       </ul>
@@ -29,7 +29,7 @@
                   <li class="nav-item ">
           <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <button class="btn btn-outline-light" type="submit">Log Out</button>
+            <button class="btn btn-outline-light fs-5" type="submit">Log Out</button>
           </form>    
             </li>
       </ul>
@@ -46,7 +46,7 @@
 
 <nav class="navbar navbar-expand-lg  sticky-top bg-primary" data-bs-theme="dark">
   <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" href="/">Home Page</a>
+    <a class="navbar-brand fs-4" href="/">Home Page</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -55,17 +55,17 @@
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+          <a class="nav-link active fs-5" aria-current="page" href="{% url 'about' %}">About</a>
         </li>
         
 
       </ul>
       <ul class="navbar-nav  mb-2 mb-lg-0">
                  <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+          <a class="nav-link active fs-5" aria-current="page" href="{% url 'login' %}">Login</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
+          <a class="nav-link active fs-5" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
         </li>
       </ul>
 
