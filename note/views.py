@@ -60,11 +60,7 @@ def note_delete_view(request, pk):
 
 
 
-class SignupPageView(generic.CreateView):
-    form_class = CustomerUserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
-     
+
 def myform(request):
     Todos = Todo.objects.filter(author=request.user)
     context = {
