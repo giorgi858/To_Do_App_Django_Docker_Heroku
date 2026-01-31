@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block title %} Home {% endblock title %}
@@ -8,14 +9,15 @@
 <div class="text-center">
 
 {% if user.is_authenticated %}
+<br/>
     <h2>Hello {{user}} &#128522;</h2>
-    <!-- <img class="aisi" src="{% static 'image/aisi_photo.jpg' %}"> -->
-{% else %}
-  <br/>
-
-    <H1>Hello Everyone &#128522;</H1>
-    <br/><br/><br/>
-    <!-- <img class="aisi" src="{% static 'image/aisi_main.jpg' %}"> -->
+ <div class="some">
+          <img class='main-photo'   src="{% static 'image/todo-main.jpg' %}">
+  </div>
+  {% else %}
+ <div class="some">
+          <img class='main-photo'   src="{% static 'image/todo-main.jpg' %}">
+  </div>  
 
 {% endif %}
 </div>

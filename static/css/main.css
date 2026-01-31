@@ -1,3 +1,12 @@
-/* :root {
-    --bs-body-font-family: 'Roboto', sans-serif;
-} */
+.main-photo {
+    height: 550px;
+    width: auto;
+    margin-top: 25px;
+    border-radius: 10%;
+
+}
+.some{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
