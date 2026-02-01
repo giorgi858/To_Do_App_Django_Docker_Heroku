@@ -10,26 +10,32 @@
 
 {% if user.is_authenticated %}
 <br/>
-    <h2>Hello {{user}} &#128522;</h2>
+        <h2>Hello {{user}} &#128522;</h2>
+
+    <h3 >want to make a To Do List</h3>
+<a type="button" class="btn btn-lg btn-outline-success" href="{% url 'todo' %}">GO HERE</a>
+
  <div class="some">
           <img class='main-photo'   src="{% static 'image/todo-main.jpg' %}">
   </div>
   {% else %}
- <div class="some">
+ <div class="container">
+  <div  class="some">
           <img class='main-photo'   src="{% static 'image/todo-main.jpg' %}">
+
+  </div>
+
+      </div>
+
+  </div>
   </div>  
 
 {% endif %}
 </div>
-<div class="text-center" style="min-height: 50vh;">
-  <br/>
-<h1>want to make a To Do List</h1>
-<br/>
-<a type="button" class="btn btn-lg btn-outline-success" href="{% url 'todo' %}">GO HERE</a>
-  <br/>  <br/>
+<div class="text-center mt-5" style="min-height: 20vh;">
 
- <h1>Or Find out more about the idea. 
-  <br/>  <br/>
+
+ <h1>Find out more about the idea 
 
 <a type="button" class="btn btn-lg btn-outline-success" href="{% url 'about' %}">About</a>
 </h1>

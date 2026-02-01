@@ -10,3 +10,7 @@
     justify-content: center;
     align-items: center;
 }
+.some img {
+    width: 100%; /* Image will shrink to fit the container */
+    height: auto;
+}

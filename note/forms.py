@@ -1,19 +1,16 @@
-from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.forms import ModelForm
 from .models import Todo
 from django import forms
+   # myapp/forms.py
+from allauth.account.forms import LoginForm
 
-class CustomerUserCreationForm(UserCreationForm):
-    class Meta:
-        model = get_user_model()
-        fields = ("email", "username")
-        
-class CustomerUserChangeForm(UserChangeForm):
-    class Meta:
-        model = get_user_model()
-        fields = ("email", "username")
-        
+class CustomLoginForm(LoginForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # This removes the injected "Forgot your password?" link
+        if "password" in self.fields:
+            self.fields["password"].help_text = None
+   
 class TodoForm(ModelForm):
     class Meta:
         model = Todo

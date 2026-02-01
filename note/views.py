@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from .forms import CustomerUserCreationForm, TodoForm
+from .forms import TodoForm
 from django.urls import reverse_lazy
 from .models import Todo
 from django.contrib.auth.decorators import login_required
