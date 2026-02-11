@@ -3,11 +3,11 @@
 
 {% block title %} Form {% endblock title %}
 {% block content %}
-
-{% for todo in todos %}
 <div style="min-height: 65vh">
 
+{% if todos  %}
 
+{% for todo in todos %}
 <br/>
 <div class="p-3  rounded d-flex justify-content-between align-items-center mb-2" style=" border: 1px dashed;">
   <div>
@@ -17,5 +17,18 @@
 
 </div>
 {% endfor %}
+
+{% else  %}
+<br/>
+<div class="p-5  rounded d-flex justify-content-center align-items-center mb-2">
+  <div>
+    <h3>There arn't any task to display.</h3>
+    <h4>start <a href="{% url 'todo' %}">Here</a> and make your own Task</h4>
+  </div>
+
+</div>
+{% endif %}
+
+
 </div>
 {% endblock content %}

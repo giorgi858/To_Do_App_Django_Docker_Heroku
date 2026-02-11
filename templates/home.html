@@ -10,8 +10,7 @@
 
 {% if user.is_authenticated %}
 <br/>
-        <h2>Hello {{user}} &#128522;</h2>
-
+    <h2>Hello {{ user.username|title }} &#128522;</h2>
     <h3 >want to make a To Do List</h3>
 <a type="button" class="btn btn-lg btn-outline-success" href="{% url 'todo' %}">GO HERE</a>
 
