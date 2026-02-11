@@ -6,8 +6,11 @@
 {% block title %} Log In{% endblock title %}
 
 {% block content %}
-<div style="min-height: 70vh;">
-    <br/>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4 text-center">
+
 <h2 >Log In</h2>
 <form method="POST">
     {% csrf_token %}
@@ -16,8 +19,9 @@
     <br/><br/>
     <p>Don't Have an Accout? <a type="button" class="btn btn-sm btn-outline-success"  href="{% url 'account_signup' %}"> Register</a></p>
 </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 
 {% endblock %}

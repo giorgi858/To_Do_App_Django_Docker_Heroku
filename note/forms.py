@@ -3,13 +3,19 @@ from .models import Todo
 from django import forms
    # myapp/forms.py
 from allauth.account.forms import LoginForm
+from crispy_forms.helper import FormHelper
+
 
 class CustomLoginForm(LoginForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # This removes the injected "Forgot your password?" link
-        if "password" in self.fields:
-            self.fields["password"].help_text = None
+    pass
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     # This removes the injected "Forgot your password?" link
+    #     if "password" in self.fields:
+    #         self.fields["password"].help_text = None
+    #         self.helper = FormHelper()
+    #         self.helper.form_show_labels = False
+
    
 class TodoForm(ModelForm):
     class Meta:

@@ -185,6 +185,24 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"] # new
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+ACCOUNT_SIGNUP_FIELDS = [
+    'email*',
+    'username*',
+    'password1*',
+    'password2*',
+]
+
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+# If we want not to use username at all.
+# ACCOUNT_SIGNUP_FIELDS = [
+#     'email*',
+#     'password1*',
+#     'password2*',
+# ]
+# ACCOUNT_USERNAME_REQUIRED = False   # optional, but common
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_AUTHENTICATION_METHOD = "email"
 
 
 # Default primary key field type
