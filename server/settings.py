@@ -55,8 +55,17 @@ AUTHENTICATION_BACKENDS = [
 # ACCOUNT_LOGOUT_ON_GET = False 
 ACCOUNT_SESSION_REMEMBER = True
 LOGIN_REDIRECT_URL = 'home'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# ACCOUNT_EMAIL_VERIFICATION = "none"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+#in local development
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#but in production is this 
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 SITE_ID = 1
 # settings.py
@@ -69,6 +78,28 @@ ACCOUNT_FORMS = {
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# heroku config:set EMAIL_HOST_USER=yourgmail@gmail.com
+# heroku config:set EMAIL_HOST_PASSWORD="abcd efgh ijkl mnop"
+
+# python manage.py shell
+#test email
+# from django.core.mail import send_mail
+# send_mail(
+#     'Test email',
+#     'It works!',
+#     'yourgmail@gmail.com',
+#     ['yourgmail@gmail.com'],
+#     fail_silently=False,
+# )
+
+
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
