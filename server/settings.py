@@ -98,9 +98,6 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # )
 
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware", # new
@@ -154,6 +151,8 @@ DATABASES = {
 # DB_PORT=''
 # DB_HOST=''
 # DB_PWD=''
+# EMAIL_HOST_USER=''
+# EMAIL_HOST_PASSWORD=''
 
 
 # DATABASES = {
