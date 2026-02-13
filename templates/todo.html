@@ -67,6 +67,12 @@
   <div>
     <strong>{{todo.task}}</strong>
     <p class="mb-0 text-muted">{{todo.describtion}}</p>
+    <strong class="mb-0 my-2 ">Created - {{ todo.created| date:"d M Y" }}</strong>
+    {% if todo.updated|date:"U" != todo.created|date:"U" %}
+        <br/>
+    <strong class="mb-0 my-2 ">Updated - {{ todo.updated| date:"d M Y" }}</strong>
+
+      {% endif %}
   </div>
 
 </div>
