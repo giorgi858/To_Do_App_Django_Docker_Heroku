@@ -22,8 +22,6 @@ DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = ['*']
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,13 +35,11 @@ INSTALLED_APPS = [
     'note',
     'corsheaders',
     'crispy_forms',
-    'crispy_bootstrap5',
-    
+    'crispy_bootstrap5',   
     'allauth',
     'allauth.account',
       
 ]
-
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -58,21 +54,11 @@ LOGIN_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-#in local development
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#but in production is this 
-# if DEBUG:
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# else:
-#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-
 SITE_ID = 1
 # settings.py
 ACCOUNT_FORMS = {
     'login': 'note.forms.CustomLoginForm',
 }
-
     
 # django-crispy-forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -83,19 +69,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-# heroku config:set EMAIL_HOST_USER=yourgmail@gmail.com
-# heroku config:set EMAIL_HOST_PASSWORD="abcd efgh ijkl mnop"
-
-# python manage.py shell
-#test email
-# from django.core.mail import send_mail
-# send_mail(
-#     'Test email',
-#     'It works!',
-#     'yourgmail@gmail.com',
-#     ['yourgmail@gmail.com'],
-#     fail_silently=False,
-# )
 
 
 MIDDLEWARE = [
@@ -109,9 +82,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
-
-
 ]
+
 ROOT_URLCONF = 'server.urls'
 
 TEMPLATES = [
@@ -154,7 +126,6 @@ DATABASES = {
 # EMAIL_HOST_USER=''
 # EMAIL_HOST_PASSWORD=''
 
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -173,9 +144,6 @@ DATABASES = {
     #     "HOST": 'casrkuuedp6an1.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
     #     "PORT": '5432',
     # }}
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -240,17 +208,10 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
-
-
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
-
 SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
 SECURE_HSTS_PRELOAD= env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
-
 SESSION_COOKIE_SECURE=env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
 CSRF_COOKIE_SECURE=env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
-
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
