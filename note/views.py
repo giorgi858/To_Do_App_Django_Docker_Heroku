@@ -1,9 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from .forms import TodoForm
+from .forms import TodoForm, UsernameChangeForm
 from django.urls import reverse_lazy
 from .models import Todo
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+@login_required
+def change_username(request):
+    if request.method == "POST":
+        form = UsernameChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Username updated successfully.")
+            return redirect("home")  # change if needed
+    else:
+        form = UsernameChangeForm(instance=request.user)
+
+    return render(request, "account/username_change.html", {"form": form})
+
+
+
 
 def aboutView(request):
     return render(request, 'About.html', {})
