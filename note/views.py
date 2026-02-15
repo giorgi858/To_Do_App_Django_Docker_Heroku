@@ -1,86 +1,99 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views import generic
-from .forms import TodoForm, UsernameChangeForm
-from django.urls import reverse_lazy
-from .models import Todo
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse_lazy
 
+from .forms import TodoForm, UsernameChangeForm
+from .models import Todo
+
+
+# -----------------------------
+# Home & About Pages
+# -----------------------------
+def home(request):
+    return render(request, "home.html")
+
+
+def aboutView(request):
+    return render(request, "About.html")
+
+
+# -----------------------------
+# Username Change
+# -----------------------------
 @login_required
 def change_username(request):
-    if request.method == "POST":
-        form = UsernameChangeForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Username updated successfully.")
-            return redirect("home")  # change if needed
-    else:
-        form = UsernameChangeForm(instance=request.user)
+    """
+    Allow logged-in users to change their username.
+    """
+    form = UsernameChangeForm(request.POST or None, instance=request.user)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Username updated successfully.")
+        return redirect("home")  # or another page if needed
 
     return render(request, "account/username_change.html", {"form": form})
 
 
-
-
-def aboutView(request):
-    return render(request, 'About.html', {})
-
+# -----------------------------
+# Todo Views
+# -----------------------------
 @login_required
 def todolistView(request):
+    """
+    Display all todos for the current user and handle new todo creation.
+    """
     todos = Todo.objects.filter(author=request.user)
-    form = TodoForm()
-    if request.method == "POST":
-        form = TodoForm(request.POST or None)
-        if form.is_valid():
-            # Commit False prevents saving to the database immediately
-            post = form.save(commit=False)
-            print(request.user)
-            # Assign the current logged-in user to the note
-            post.author  = request.user
-            # Now save the instance to the database
-            post.save()
-            return redirect('todo') # Redirect to the note list page
-        else:
-            form = TodoForm()
+    form = TodoForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        todo = form.save(commit=False)
+        todo.author = request.user
+        todo.save()
+        return redirect("todo")  # refresh page
+
     context = {
         "todos": todos,
-         "form": form 
+        "form": form,
     }
-    return render(request,"todo.html", context)
+    return render(request, "todo.html", context)
 
-
-def home(request):
-    return render(request,"home.html", {})
 
 @login_required
 def note_update_view(request, pk):
-    obj = get_object_or_404(Todo, pk=pk)
-    form = TodoForm(request.POST or None, instance=obj)
-    if request.method == "POST":
-        form = TodoForm(request.POST, instance=obj)
-        if form.is_valid():
-            form.save() 
-        return redirect('todo')
-    return render(request, 'task_edit.html', { 'form': form })
+    """
+    Edit a todo task.
+    """
+    todo = get_object_or_404(Todo, pk=pk)
+    form = TodoForm(request.POST or None, instance=todo)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("todo")
+
+    return render(request, "task_edit.html", {"form": form})
+
 
 @login_required
 def note_delete_view(request, pk):
-    obj = get_object_or_404(Todo, pk=pk)
+    """
+    Delete a todo task with confirmation.
+    """
+    todo = get_object_or_404(Todo, pk=pk)
+
     if request.method == "POST":
-        obj.delete()
-        return redirect('todo')
-    context = {
-        'object': obj
-    }
-    return render(request, 'delete_task.html', context)
+        todo.delete()
+        messages.success(request, f"Task '{todo.task}' deleted successfully.")
+        return redirect("todo")
+
+    return render(request, "delete_task.html", {"object": todo})
 
 
-
-
-
+@login_required
 def myform(request):
-    Todos = Todo.objects.filter(author=request.user)
-    context = {
-        'todos': Todos
-    }
-    return render(request, 'form.html', context)
+    """
+    Display all tasks (read-only overview).
+    """
+    todos = Todo.objects.filter(author=request.user)
+    return render(request, "form.html", {"todos": todos})

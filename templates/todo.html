@@ -1,91 +1,111 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %} Todo List {% endblock title %}
-{% block content %}
 {% load crispy_forms_tags %}
 
+{% block title %}To-Do List{% endblock title %}
 
+{% block content %}
+<div class="container my-5">
 
+    <!-- Google Search Card -->
+    <div class="card border-0 shadow-sm rounded-4 mb-5">
+        <div class="card-body p-4">
 
-<section class="p-3" style="border-bottom: 2px dotted blue;"> 
-  <article>
-  <br/>
-  <div style="text-align: center;">
-    <h4>Make a search in Google</h4>
-  </div>
+            <h5 class="fw-semibold text-center mb-3">
+                Quick Google Search
+            </h5>
 
-  <form class="d-flex mt-2" role="search" action="https://www.google.com/search" method="get" target="_blank">
-    <input name="q" class="form-control me-2 " type="search" placeholder="Search in Google" aria-label="Search"/>
-    <button class="btn btn-outline-success" type="submit">Search</button>
-  </form>
+            <form class="d-flex gap-2" action="https://www.google.com/search" method="get" target="_blank">
+                <input
+                    name="q"
+                    class="form-control"
+                    type="search"
+                    placeholder="Search while planning your tasks..."
+                    aria-label="Search"
+                />
+                <button class="btn btn-outline-success px-4" type="submit">
+                    Search
+                </button>
+            </form>
 
-  </article>
-</section>
-  <br/>
-  <br/>
-
-
-
-
-
-<br/>
-<br/>
-<section>
-  <article>
-      <div style="text-align: center;">
-
-    <h1>Make a To do List</h1>
-      </div>
-    <div class="row">
-      <div class="column">
-        
-<form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-        <div style="text-align: center;">
-
-    <button type="submit" class="btn btn-outline-success w-50">Save</button>
         </div>
-</form>
-<br/>
+    </div>
 
+    <!-- Create Todo Card -->
+    <div class="card border-0 shadow rounded-4 mb-5">
+        <div class="card-body p-5">
 
+            <h3 class="fw-semibold text-center mb-4">
+                Create a New Task
+            </h3>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-success btn-lg rounded-pill">
+                        Save Task
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Todo List -->
+    {% for todo in todos %}
+        <div class="card border-0 shadow-sm rounded-4 mb-3">
+            <div class="card-body p-4">
+
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h5 class="fw-semibold mb-1">
+                            {{ todo.task }}
+                        </h5>
+
+                        {% if todo.describtion %}
+                            <p class="text-muted mb-2">
+                                {{ todo.describtion }}
+                            </p>
+                        {% endif %}
+
+                        <small class="text-muted d-block">
+                            Created · {{ todo.created|date:"d M Y" }}
+                        </small>
+
+                        {% if todo.updated|date:"U" != todo.created|date:"U" %}
+                            <small class="text-muted d-block">
+                                Updated · {{ todo.updated|date:"d M Y" }}
+                            </small>
+                        {% endif %}
+                    </div>
+
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a
+                            href="{% url 'edit_task' todo.id %}"
+                            class="btn btn-outline-primary"
+                        >
+                            Edit
+                        </a>
+                        <a
+                            href="{% url 'product_delete' todo.id %}"
+                            class="btn btn-outline-danger"
+                        >
+                            Delete
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% empty %}
+        <div class="text-center text-muted mt-5">
+            <p class="fs-5 mb-0">
+                No tasks yet. Start by creating one above ✨
+            </p>
+        </div>
+    {% endfor %}
 
 </div>
-  </article>
-</section>
-
-
-
-<br/>
-
-{% for todo in todos %}
-
-<br/>
-<div class="p-3  rounded d-flex justify-content-between align-items-center mb-2" style=" border: 1px dashed">
-  <div>
-    <strong>{{todo.task}}</strong>
-    <p class="mb-0 text-muted">{{todo.describtion}}</p>
-    <strong class="mb-0 my-2 ">Created - {{ todo.created| date:"d M Y" }}</strong>
-    {% if todo.updated|date:"U" != todo.created|date:"U" %}
-        <br/>
-    <strong class="mb-0 my-2 ">Updated - {{ todo.updated| date:"d M Y" }}</strong>
-
-      {% endif %}
-  </div>
-
-</div>
-
-  <div  class="mb-3"  role="group">
-    <!-- Edit Button -->
-    <a  type="button" href="{% url 'edit_task' todo.id %}" class="btn btn-outline-primary px-4">Edit</a>
-    <!-- Delete Button -->
-    <a href="{% url 'product_delete' todo.id %}"  type="button" class="btn btn-outline-danger">Delete</a>
-    <br/>
-  </div>
-
-
-
-{% endfor %} 
 {% endblock %}

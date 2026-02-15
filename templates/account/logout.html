@@ -2,25 +2,35 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
-{% block title %} Log Out{% endblock title %}
+{% block title %}Log Out{% endblock title %}
 
 {% block content %}
-<br/>
-<div class="mt-5" style="min-height: 60vh;">
-    <br/>
-<h3 class="d-flex  justify-content-center align-items-center">Are you sure you want to log out?</h3>
-<form class="d-flex  justify-content-center align-items-center" method="POST" action="{% url 'account_logout' %}">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button class="btn btn-outline-danger" type="submit">Log Out</button>
- <br/><br/>
-</form>
-<div class="d-flex  justify-content-center align-items-center">
-    <a type="button" class=" btn btn-outline-success" href="{% url 'home' %}" >Go Back</a>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-6 col-lg-5">
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-5 text-center">
+
+                <h3 class="fw-semibold text-danger mb-4">
+                    Are you sure you want to log out?
+                </h3>
+
+                <form method="POST" action="{% url 'account_logout' %}" class="d-grid gap-3">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+
+                    <button type="submit" class="btn btn-danger btn-lg rounded-pill">
+                        Log Out
+                    </button>
+
+                    <a href="{% url 'home' %}" class="btn btn-outline-success btn-lg rounded-pill">
+                        Cancel
+                    </a>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
 </div>
-
-</div>
-
-
 {% endblock %}

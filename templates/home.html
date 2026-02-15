@@ -1,44 +1,62 @@
 {% extends "base.html" %}
-
 {% load static %}
-
-{% block title %} Home {% endblock title %}
-{% block content %}
 {% load crispy_forms_tags %}
 
-<div class="text-center">
+{% block title %}Home{% endblock title %}
 
-{% if user.is_authenticated %}
-<br/>
-    <h2>Hello {{ user.username|title }} &#128522;</h2>
-    <h3 >want to make a To Do List</h3>
-<a type="button" class="btn btn-lg btn-outline-success" href="{% url 'todo' %}">GO HERE</a>
+{% block content %}
+<div class="container">
 
- <div class="some">
-          <img class='main-photo'   src="{% static 'image/todo-main.jpg' %}">
-  </div>
-  {% else %}
- <div class="container">
-  <div  class="some">
-          <img class='main-photo'   src="{% static 'image/todo-main.jpg' %}">
+    <!-- Hero Section -->
+    <div class="row align-items-center justify-content-center" style="min-height: 75vh;">
+        <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
 
-  </div>
+            {% if user.is_authenticated %}
+                <h2 class="fw-semibold mb-2">
+                    Welcome back, {{ user.username|title }} 😊
+                </h2>
+                <p class="text-muted mb-4 fs-5">
+                    Ready to organize your tasks and stay focused?
+                </p>
+                <a href="{% url 'todo' %}" class="btn btn-success btn-lg rounded-pill px-5">
+                    Go to your To-Do List
+                </a>
+            {% else %}
+                <h1 class="fw-semibold mb-3">
+                    Organize Your Day, Effortlessly
+                </h1>
+                <p class="text-muted mb-4 fs-5">
+                    A simple and elegant way to plan, track, and complete your daily tasks.
+                </p>
+                <a href="{% url 'account_login' %}" class="btn btn-success btn-lg rounded-pill px-5 me-2">
+                    Get Started
+                </a>
+                <a href="{% url 'about' %}" class="btn btn-outline-success btn-lg rounded-pill px-5">
+                    Learn More
+                </a>
+            {% endif %}
 
-      </div>
+        </div>
 
-  </div>
-  </div>  
+        <!-- Hero Image -->
+        <div class="col-lg-5 text-center">
+            <img
+                src="{% static 'image/todo-main.jpg' %}"
+                class="img-fluid rounded-4 shadow-sm"
+                alt="To Do App"
+            >
+        </div>
+    </div>
 
-{% endif %}
+    <!-- Secondary CTA -->
+    <div class="text-center my-5">
+        <h3 class="fw-semibold mb-3">
+            Want to learn more about the idea?
+        </h3>
+        <a href="{% url 'about' %}" class="btn btn-outline-success btn-lg rounded-pill px-5">
+            About
+        </a>
+    </div>
+
 </div>
-<div class="text-center mt-5" style="min-height: 20vh;">
-
-
- <h1>Find out more about the idea 
-
-<a type="button" class="btn btn-lg btn-outline-success" href="{% url 'about' %}">About</a>
-</h1>
-
-</div>
-
 {% endblock %}

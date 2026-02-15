@@ -1,25 +1,42 @@
-<footer class="navbar py-4 mt-5 bg-primary text-white" data-bs-theme="dark">
-  <div class="container">
-    <div class="row">
+<footer class="footer mt-5">
+    <div class="container py-5">
 
-      <!-- Section 2: Quick Links -->
-      <div class="col-md-4 mb-1">
-        <h5 class="fs-4">Quick Links</h5>
-        <ul class="nav flex-column">
-          <h4>
-            <li class="nav-item mb-2">
-    <a class="navbar-brand" href="/">Home Page</a>
-          </li>
-        </h4>
-          <h4><li class="nav-item  mb-2"><a href="{% url 'about' %}" class="nav-link navbar-brand p-0">About</a></li></h4>
-        </ul>
-      </div>
+        <div class="row align-items-center">
 
+            <!-- Brand / Description -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h5 class="fw-semibold mb-2">To-Do App</h5>
+                <p class="text-muted mb-0">
+                    A simple and elegant way to organize your daily tasks.
+                </p>
+            </div>
 
-    <!-- Bottom Copyright -->
-    <div class="d-flex justify-content-between py-4 my-2 border-top">
-      <p>&copy; {% now "Y" %} To-Do-App, Inc. All rights reserved.</p>
+            <!-- Quick Links -->
+            <div class="col-md-6 text-md-end">
+                <h6 class="fw-semibold mb-3">Quick Links</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2">
+                        <a href="/" class="footer-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}" class="footer-link">About</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr class="my-4">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="text-muted mb-2 mb-md-0">
+                &copy; {% now "Y" %} To-Do App. All rights reserved.
+            </p>
+
+            <small class="text-muted">
+                Built with ❤️ using Django
+            </small>
+        </div>
+
     </div>
-  </div>
-  </div>
 </footer>

@@ -1,82 +1,99 @@
 {% load static %}
 
-{% if user.is_authenticated %}
-<nav class="navbar navbar-expand-lg  sticky-top bg-primary " data-bs-theme="dark">
-  <div class="container px-4 px-lg-5">
-    <a class="navbar-brand fs-4" href="/">Home Page</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
- 
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow-sm">
+    <div class="container px-4 px-lg-5">
 
+        <!-- Brand -->
+        <a class="navbar-brand fw-semibold" href="/">
+            To-Do App
+        </a>
 
-       
-          
-             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Mobile Toggle -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <li class="nav-item">
-          <a class="nav-link active fs-5" aria-current="page" href="{% url 'myform' %}">All Tasks</a>
-        </li>
-            <li class="nav-item">
-          <a class="nav-link active fs-5" aria-current="page" href="{% url 'about' %}">About</a>
-        </li> 
+            <!-- Left Links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <li class="nav-item dropdown ">
-<a class="nav-link active dropdown-toggle fs-5" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
-<ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li>
-      <a class="dropdown-item " href="{% url 'account_change_password' %}">Change Password</a>
-    </li>
-    <li><hr class="dropdown-divider" /></li>
-    <li><a class="dropdown-item" href="{% url 'account_change_username' %}">Change Username</a></li>
-</ul>
-</li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'myform' %}">
+                            All Tasks
+                        </a>
+                    </li>
+                {% endif %}
 
-      </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">
+                        About
+                    </a>
+                </li>
 
-      <ul class="navbar-nav  mb-2 mb-lg-0">
-            <li class="nav-item ">
-            <a class="nav-link active fs-5" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-      </ul>
+            </ul>
 
+            <!-- Right Links -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
 
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="profileDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ user.username|title }}
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'account_change_password' %}">
+                                    Change Password
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'account_change_username' %}">
+                                    Change Username
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="{% url 'account_logout' %}">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="btn btn-success rounded-pill px-4 ms-lg-3"
+                            href="{% url 'account_signup' %}">
+                            Sign Up
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+
+        </div>
     </div>
-  </div>
 </nav>
-       
-
-
-{% else  %}
-
-<nav class="navbar navbar-expand-lg  sticky-top bg-primary mb-0" data-bs-theme="dark">
-  <div class="container px-4 px-lg-5">
-    <a class="navbar-brand fs-4" href="/">Home Page</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
- 
-
-             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-          <a class="nav-link active fs-5" aria-current="page" href="{% url 'about' %}">About</a>
-        </li>
-        
-
-      </ul>
-      <ul class="navbar-nav  mb-2 mb-lg-0">
-                 <li class="nav-item">
-          <a class="nav-link active fs-5" aria-current="page" href="{% url 'account_login' %}">Login</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link active fs-5" aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</nav>
-        {% endif %}

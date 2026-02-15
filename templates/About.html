@@ -1,18 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} About Page {% endblock title %}
+{% block title %}About{% endblock title %}
+
 {% block content %}
-<br/>
-    <div class="text-center" style="min-height: 70vh;">
-        <h2>About The idea </h2>
-        <br/>
-        <h5>This website is dedicate to make your life easy.</h5>
-        <h5>Here you can create your own task and also write your task's description.</h5>
-        <h5>Your can edit it tasks or delete them.</h5>
-        <h5>If you need some information while you are writing your task  you can use google search function &#128521</h5>
-        <br/>
-        <a class="btn btn-outline-success" href="{% url 'todo' %}">Start Now</a>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="col-md-10 col-lg-8">
+        <div class="card border-0 shadow rounded-4">
+            <div class="card-body p-5 text-center">
+
+                <h2 class="fw-semibold mb-3">About the Idea</h2>
+
+                <p class="text-muted mb-4">
+                    A simple and thoughtful way to organize your daily tasks.
+                </p>
+
+                <div class="mx-auto" style="max-width: 600px;">
+                    <p class="mb-2">
+                        This application is designed to help you focus on what truly matters
+                        by keeping your tasks clear and organized.
+                    </p>
+
+                    <p class="mb-2">
+                        You can create tasks, add descriptions, edit them anytime,
+                        or remove them once completed.
+                    </p>
+
+                    <p class="mb-4">
+                        Need quick information while planning?
+                        Use the built-in Google search to stay productive 😉
+                    </p>
+                </div>
+
+                <a class="btn btn-success btn-lg rounded-pill px-5" href="{% url 'todo' %}">
+                    Start Now
+                </a>
+
+            </div>
+        </div>
     </div>
-<br/>
+</div>
 {% endblock %}
