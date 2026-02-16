@@ -1,0 +1,126 @@
+/* .main-photo {
+    height: 550px;
+    width: auto;
+    margin-top: 25px;
+    border-radius: 10%;
+
+}
+.some{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.some img {
+    width: 100%; 
+    height: auto;
+}
+
+
+.reset-form input {
+    width: 100% !important;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ced4da;
+} */
+
+label {
+    display: none;
+}
+
+.main-photo {
+    max-width: 100%;
+}
+
+/* Global Layout */
+.app-body {
+    background-color: #f3f4f6;
+    font-family: 'Roboto', sans-serif;
+    color: #1f2937;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: 'DM Serif Text', serif;
+    letter-spacing: -0.5px;
+}
+
+/* Cards */
+p {
+    line-height: 1.6;
+}
+
+.card {
+    background-color: #ffffff;
+}
+
+
+/* Alerts */
+.alert {
+    font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+
+
+h1, h2, h3 {
+    letter-spacing: -0.5px;
+}
+.navbar {
+    backdrop-filter: blur(8px);
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #374151;
+}
+
+.nav-link:hover {
+    color: #198754;
+}
+
+.dropdown-menu {
+    border-radius: 0.75rem;
+}
+.form-text {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+/* Footer */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+.footer-link {
+    color: #198754;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.card {
+    background-color: #ffffff;
+}
+
+.btn-group .btn {
+    border-radius: 0.5rem;
+}
+
+small {
+    font-size: 0.85rem;
+}

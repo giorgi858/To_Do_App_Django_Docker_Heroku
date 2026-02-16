@@ -117,6 +117,15 @@ DATABASES = {
         "PORT": '5432',
     }}
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         "NAME": 'd6128ma954h3uo',
+#         "USER": 'ufm0i1vdjab0bk',
+#         "PASSWORD": 'p109c77a19788eaf518be93b59b7f0c95b08efe13154dfae3853413300536b6a2',
+#         "HOST": 'chepvbj2ergru.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+#         "PORT": '5432',
+#     }}
 
 
 # DB_NAME=''
