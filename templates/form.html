@@ -13,22 +13,22 @@
                 <div class="card-body p-4">
 
                     <h5 class="fw-semibold mb-1">
-                        {{ todo.task }}
+                        {{ todo.title }}
                     </h5>
 
                     {% if todo.describtion %}
                         <p class="text-muted mb-2">
-                            {{ todo.describtion }}
+                            {{ todo.description }}
                         </p>
                     {% endif %}
 
                     <small class="text-muted d-block">
-                        Created · {{ todo.created|date:"d M Y" }}
+                        Created · {{ todo.created_at|date:"d M Y" }}
                     </small>
 
-                    {% if todo.updated|date:"U" != todo.created|date:"U" %}
+                    {% if todo.updated_at|date:"U" != todo.created_at|date:"U" %}
                         <small class="text-muted d-block">
-                            Updated · {{ todo.updated|date:"d M Y" }}
+                            Updated · {{ todo.updated_at|date:"d M Y" }}
                         </small>
                     {% endif %}
 

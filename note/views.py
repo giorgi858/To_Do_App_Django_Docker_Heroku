@@ -84,7 +84,7 @@ def note_delete_view(request, pk):
 
     if request.method == "POST":
         todo.delete()
-        messages.success(request, f"Task '{todo.task}' deleted successfully.")
+        messages.success(request, f"Task '{todo.title}' deleted successfully.")
         return redirect("todo")
 
     return render(request, "delete_task.html", {"object": todo})

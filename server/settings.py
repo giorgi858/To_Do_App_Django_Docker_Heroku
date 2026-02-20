@@ -117,15 +117,15 @@ DATABASES = {
         "PORT": '5432',
     }}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         "NAME": 'd6128ma954h3uo',
-#         "USER": 'ufm0i1vdjab0bk',
-#         "PASSWORD": 'p109c77a19788eaf518be93b59b7f0c95b08efe13154dfae3853413300536b6a2',
-#         "HOST": 'chepvbj2ergru.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-#         "PORT": '5432',
-#     }}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PWD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
+    }}
 
 
 # DB_NAME=''
@@ -145,15 +145,16 @@ DATABASES = {
 #         "HOST": os.getenv("DB_HOST"),
 #         "PORT": os.getenv("DB_PORT"),
 #     }}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         "NAME": 'd6128ma954h3uo',
+#         "USER": 'ufm0i1vdjab0bk',
+#         "PASSWORD": 'p109c77a19788eaf518be93b59b7f0c95b08efe13154dfae3853413300536b6a2',
+#         "HOST": 'chepvbj2ergru.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
+#         "PORT": '5432',
+#     }}
 
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     "NAME": 'dec4gansdao6p0',
-    #     "USER": 'u6hf63kr9q96e7',
-    #     "PASSWORD": 'pac2946b37dc91f30d1ed173f7bdb4119e314667dac7e55a806692d1069cf188c',
-    #     "HOST": 'casrkuuedp6an1.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com',
-    #     "PORT": '5432',
-    # }}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

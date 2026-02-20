@@ -48,23 +48,23 @@ class CustomLoginForm(LoginForm):
 class TodoForm(ModelForm):
     class Meta:
         model = Todo
-        fields = ('task', 'describtion')
+        fields = ('title', 'description')
         labels = {
-            'task': '',
-            'describtion': '',
+            'title': '',
+            'description': '',
         }
         widgets = {
-            'task': forms.TextInput(
+            'title': forms.TextInput(
                 attrs={
                     'class': 'todo-input form-control',
-                    'placeholder': 'Enter task name...',
+                    'placeholder': 'Enter Title ...',
                 }
             ),
-            'describtion': forms.Textarea(
+            'description': forms.Textarea(
                 attrs={
                     'class': 'todo-textarea form-control',
                     'rows': 3,
-                    'placeholder': 'Enter task description...',
+                    'placeholder': 'Enter Description...',
                 }
             ),
         }
