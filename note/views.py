@@ -6,7 +6,6 @@ from django.urls import reverse_lazy
 from .forms import TodoForm, UsernameChangeForm
 from .models import Todo
 
-
 # -----------------------------
 # Home & About Pages
 # -----------------------------

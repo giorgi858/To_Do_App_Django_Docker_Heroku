@@ -2,10 +2,13 @@ from pathlib import Path
 import os 
 from dotenv import load_dotenv
 from environs import Env
+from datetime import timedelta
+
 env = Env()
 env.read_env()
 
 load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,11 +36,15 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'note',
+    'api',
     'corsheaders',
     'crispy_forms',
     'crispy_bootstrap5',   
     'allauth',
     'allauth.account',
+    'rest_framework',
+
+
       
 ]
 
@@ -82,6 +89,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
+
 ]
 
 ROOT_URLCONF = 'server.urls'
@@ -213,6 +221,21 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # ACCOUNT_AUTHENTICATION_METHOD = "email"
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWS_CREDENTIALS = True
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=30),
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
