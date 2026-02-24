@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-24 12:31+0000\n"
+"PO-Revision-Date: 2026-02-24 16:30+0400\n"
+"Last-Translator: Giorgi <you@example.com>\n"
+"Language-Team: Georgian\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: server/settings.py:16
+msgid "English"
+msgstr "ინგლისური"
+
+#: server/settings.py:17
+msgid "Georgian"
+msgstr "ქართული"
+
+#: templates/about.html:6
+msgid "About the Idea"
+msgstr "იდეის შესახებ"
+
+#: templates/about.html:8
+msgid "A simple and thoughtful way to organize your daily tasks."
+msgstr "გონივრული და მარტივი გზა ყოველდღიური დავალებების ორგანიზებისთვის."
+
+#: templates/about.html:11
+msgid "This application is designed to help you focus on what truly matters by keeping your tasks clear and organized."
+msgstr "ეს აპლიკაცია დაგეხმარებათ ფოკუსში დარჩეთ იმაზე, რაც მართლა მნიშვნელოვანია, დავალებების გასაგებად და ორგანიზებულად შენარჩუნებით."
+
+#: templates/about.html:15
+msgid "You can create tasks, add descriptions, edit them anytime, or remove them once completed."
+msgstr "შეგიძლიათ შექმნათ დავალებები, დაამატოთ აღწერები, შეცვალოთ ისინი ნებისმიერ დროს ან წაშალოთ დასრულების შემდეგ."
+
+#: templates/about.html:19
+msgid "Need quick information while planning? Use the built-in Google search to stay productive 😉"
+msgstr "გჭირდებათ სწრაფი ინფორმაცია დაგეგმვის დროს? გამოიყენეთ ჩაშენებული Google ძიება, რათა პროდუქტიულები დარჩეთ 😉"
+
+#: templates/about.html:24
+msgid "Start Now"
+msgstr "დაიწყე ახლავე"
+
+
+
+#: templates/account/email_confirm.html:4
+#: templates/account/email_confirm.html:13
+msgid "Confirm Email Address"
+msgstr "დაადასტურეთ ელფოსტის მისამართი"
+
+#: templates/account/email_confirm.html:19
+#, python-format
+msgid ""
+"\n"
+"                            Please confirm that <strong>%(email)s</strong> "
+"is your email address.\n"
+"                        "
+msgstr ""
+"\n"
+"                            გთხოვთ დაადასტუროთ, რომ <strong>%(email)s</"
+"strong> თქვენი ელფოსტის მისამართია.\n"
+"                        "
+
+#: templates/account/email_confirm.html:27
+msgid "Confirm Email"
+msgstr "ელფოსტის დადასტურება"
+
+#: templates/account/email_confirm.html:34
+msgid "This email confirmation link is invalid or has expired."
+msgstr "ელფოსტის დადასტურების ბმული არასწორია ან ვადაგასულია."
+
+#: templates/account/email_confirm.html:38
+msgid "Manage Email Addresses"
+msgstr "ელფოსტის მისამართების მართვა"
+
+#: templates/base.html:24 templates/navbar.html:9
+msgid "To-Do App"
+msgstr "დავალებების აპლიკაცია"
+
+#: templates/navbar.html:33
+msgid "All Tasks"
+msgstr ""
+
+#: templates/navbar.html:89
+msgid "Change Password"
+msgstr ""
+
+#: templates/navbar.html:94
+msgid "Change Username"
+msgstr ""
+
+#: templates/navbar.html:100
+msgid "Logout"
+msgstr ""
+
+#: templates/navbar.html:109
+msgid "Login"
+msgstr ""
+
+#: templates/navbar.html:116
+msgid "Sign Up"
+msgstr ""
+
+
+

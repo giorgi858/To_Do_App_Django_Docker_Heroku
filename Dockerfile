@@ -9,6 +9,12 @@ ENV PYTHONUNBUFFERED=1
 # Set work directory
 WORKDIR /code
 
+RUN apt-get update \
+    && apt-get install -y gettext \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # Install dependencies
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt

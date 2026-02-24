@@ -1,11 +1,12 @@
 {% load static %}
+{% load i18n %}
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow-sm">
     <div class="container px-4 px-lg-5">
 
         <!-- Brand -->
         <a class="navbar-brand fw-semibold" href="/">
-            To-Do App
+            {% trans "To-Do App" %}
         </a>
 
         <!-- Mobile Toggle -->
@@ -29,21 +30,46 @@
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'myform' %}">
-                            All Tasks
+                            {% trans "All Tasks" %}
                         </a>
                     </li>
                 {% endif %}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">
-                        About
+                        {% trans "About" %}
                     </a>
                 </li>
 
             </ul>
 
             <!-- Right Links -->
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
+
+                <!-- 🌍 Language Switcher -->
+                <li class="nav-item me-lg-3">
+                    <form action="{% url 'set_language' %}"
+                          method="post"
+                          class="d-flex align-items-center">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+
+                        <select name="language"
+                                class="form-select form-select-sm border-0 bg-transparent fw-semibold"
+                                onchange="this.form.submit()"
+                                style="width: auto; cursor: pointer;">
+                            {% for lang in LANGUAGES %}
+                                <option value="{{ lang.0 }}"
+                                        {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                                    {{ lang.1 }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </li>
 
                 {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
@@ -60,18 +86,18 @@
                         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
                             <li>
                                 <a class="dropdown-item" href="{% url 'account_change_password' %}">
-                                    Change Password
+                                    {% trans "Change Password" %}
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{% url 'account_change_username' %}">
-                                    Change Username
+                                    {% trans "Change Username" %}
                                 </a>
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <a class="dropdown-item text-danger" href="{% url 'account_logout' %}">
-                                    Logout
+                                    {% trans "Logout" %}
                                 </a>
                             </li>
                         </ul>
@@ -80,14 +106,14 @@
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">
-                            Login
+                            {% trans "Login" %}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a
                             class="btn btn-success rounded-pill px-4 ms-lg-3"
                             href="{% url 'account_signup' %}">
-                            Sign Up
+                            {% trans "Sign Up" %}
                         </a>
                     </li>
                 {% endif %}
