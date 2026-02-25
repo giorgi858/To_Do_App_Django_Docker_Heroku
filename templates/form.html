@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}All Tasks{% endblock title %}
+{% block title %}{% trans "All Tasks" %}{% endblock title %}
 
 {% block content %}
 <div class="container my-5" style="min-height: 65vh;">
@@ -16,19 +17,19 @@
                         {{ todo.title }}
                     </h5>
 
-                    {% if todo.describtion %}
+                    {% if todo.description %}
                         <p class="text-muted mb-2">
                             {{ todo.description }}
                         </p>
                     {% endif %}
 
                     <small class="text-muted d-block">
-                        Created · {{ todo.created_at|date:"d M Y" }}
+                        {% trans "Created" %} · {{ todo.created_at|date:"d M Y" }}
                     </small>
 
                     {% if todo.updated_at|date:"U" != todo.created_at|date:"U" %}
                         <small class="text-muted d-block">
-                            Updated · {{ todo.updated_at|date:"d M Y" }}
+                            {% trans "Updated" %} · {{ todo.updated_at|date:"d M Y" }}
                         </small>
                     {% endif %}
 
@@ -42,13 +43,13 @@
         <div class="d-flex justify-content-center align-items-center" style="min-height: 50vh;">
             <div class="text-center">
                 <h3 class="fw-semibold mb-3">
-                    No tasks yet
+                    {% trans "No tasks yet" %}
                 </h3>
                 <p class="text-muted mb-4">
-                    Start by creating your first task
+                    {% trans "Start by creating your first task" %}
                 </p>
                 <a href="{% url 'todo' %}" class="btn btn-success btn-lg rounded-pill px-5">
-                    Create a Task
+                    {% trans "Create a Task" %}
                 </a>
             </div>
         </div>

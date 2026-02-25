@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}{% trans "Home" %}{% endblock title %}
 
 {% block content %}
 <div class="container">
@@ -12,27 +13,29 @@
         <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
 
             {% if user.is_authenticated %}
-                <h2 class="fw-semibold mb-2">
-                    Welcome back, {{ user.username|title }} 😊
-                </h2>
+  <h2 class="fw-semibold mb-2">
+    {% blocktrans with username=user.username|title %}
+        Welcome back, {{ username }} 😊
+    {% endblocktrans %}
+</h2>
                 <p class="text-muted mb-4 fs-5">
-                    Ready to organize your tasks and stay focused?
+                    {% trans "Ready to organize your tasks and stay focused?" %}
                 </p>
                 <a href="{% url 'todo' %}" class="btn btn-success btn-lg rounded-pill px-5">
-                    Go to your To-Do List
+                    {% trans "Go to your To-Do List" %}
                 </a>
             {% else %}
                 <h1 class="fw-semibold mb-3">
-                    Organize Your Day, Effortlessly
+                    {% trans "Organize Your Day, Effortlessly" %}
                 </h1>
                 <p class="text-muted mb-4 fs-5">
-                    A simple and elegant way to plan, track, and complete your daily tasks.
+                    {% trans "A simple and elegant way to plan, track, and complete your daily tasks." %}
                 </p>
                 <a href="{% url 'account_login' %}" class="btn btn-success btn-lg rounded-pill px-5 me-2 m-2">
-                    Get Started
+                    {% trans "Get Started" %}
                 </a>
                 <a href="{% url 'about' %}" class="btn btn-outline-success btn-lg rounded-pill px-5">
-                    Learn More
+                    {% trans "Learn More" %}
                 </a>
             {% endif %}
 
@@ -43,7 +46,7 @@
             <img
                 src="{% static 'image/todo-main.jpg' %}"
                 class="img-fluid rounded-4 shadow-sm"
-                alt="To Do App"
+                alt="{% trans 'To Do App' %}"
             >
         </div>
     </div>

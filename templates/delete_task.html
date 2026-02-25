@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Delete Task{% endblock title %}
+{% block title %}{% trans "Delete Task" %}{% endblock title %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
@@ -11,20 +12,25 @@
             <div class="card-body p-5 text-center">
 
                 <h4 class="fw-semibold mb-3 text-danger">
-                    Delete Task
+                    {% trans "Delete Task" %}
                 </h4>
+
                 <p class="mb-4">
-                    Are you sure you want to delete the task: 
-                    <strong>{{ object.title }}</strong>?
+                    {% blocktrans with title=object.title %}
+                        Are you sure you want to delete the task:
+                        <strong>{{ title }}</strong>?
+                    {% endblocktrans %}
                 </p>
 
                 <form method="POST" class="d-flex justify-content-center gap-3">
                     {% csrf_token %}
+
                     <button type="submit" class="btn btn-danger btn-lg rounded-pill px-4">
-                        Delete
+                        {% trans "Delete" %}
                     </button>
+
                     <a href="{% url 'todo' %}" class="btn btn-outline-success btn-lg rounded-pill px-4">
-                        Cancel
+                        {% trans "Cancel" %}
                     </a>
                 </form>
 

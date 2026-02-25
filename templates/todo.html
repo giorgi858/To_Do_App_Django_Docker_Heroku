@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block title %}To-Do List{% endblock title %}
+{% block title %}{% trans "To-Do List" %}{% endblock title %}
 
 {% block content %}
 <div class="container my-5">
@@ -12,7 +13,7 @@
         <div class="card-body p-4">
 
             <h5 class="fw-semibold text-center mb-3">
-                Quick Google Search
+                {% trans "Quick Google Search" %}
             </h5>
 
             <form class="d-flex gap-2" action="https://www.google.com/search" method="get" target="_blank">
@@ -20,11 +21,11 @@
                     name="q"
                     class="form-control"
                     type="search"
-                    placeholder="Search while planning your tasks..."
-                    aria-label="Search"
+                    placeholder="{% trans 'Search while planning your tasks...' %}"
+                    aria-label="{% trans 'Search' %}"
                 />
                 <button class="btn btn-outline-success px-4" type="submit">
-                    Search
+                    {% trans "Search" %}
                 </button>
             </form>
 
@@ -36,7 +37,7 @@
         <div class="card-body p-5">
 
             <h3 class="fw-semibold text-center mb-4">
-                Create a New Task
+                {% trans "Create a New Task" %}
             </h3>
 
             <form method="post" novalidate>
@@ -45,7 +46,7 @@
 
                 <div class="d-grid mt-4">
                     <button type="submit" class="btn btn-success btn-lg rounded-pill">
-                        Save Task
+                        {% trans "Save Task" %}
                     </button>
                 </div>
             </form>
@@ -71,12 +72,12 @@
                         {% endif %}
 
                         <small class="text-muted d-block">
-                            Created · {{ todo.created_at|date:"d M Y" }}
+                            {% trans "Created" %} · {{ todo.created_at|date:"d M Y" }}
                         </small>
 
                         {% if todo.updated_at|date:"U" != todo.created_at|date:"U" %}
                             <small class="text-muted d-block">
-                                Updated · {{ todo.updated_at|date:"d M Y" }}
+                                {% trans "Updated" %} · {{ todo.updated_at|date:"d M Y" }}
                             </small>
                         {% endif %}
                     </div>
@@ -86,13 +87,13 @@
                             href="{% url 'edit_task' todo.id %}"
                             class="btn btn-outline-primary"
                         >
-                            Edit
+                            {% trans "Edit" %}
                         </a>
                         <a
                             href="{% url 'product_delete' todo.id %}"
                             class="btn btn-outline-danger"
                         >
-                            Delete
+                            {% trans "Delete" %}
                         </a>
                     </div>
                 </div>
@@ -102,7 +103,7 @@
     {% empty %}
         <div class="text-center text-muted mt-5">
             <p class="fs-5 mb-0">
-                No tasks yet. Start by creating one above ✨
+                {% trans "No tasks yet. Start by creating one above ✨" %}
             </p>
         </div>
     {% endfor %}

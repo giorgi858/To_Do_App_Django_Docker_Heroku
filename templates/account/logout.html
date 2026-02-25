@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
-{% block title %}Log Out{% endblock title %}
+{% block title %}{% trans "Log Out" %}{% endblock title %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
@@ -12,7 +13,7 @@
             <div class="card-body p-5 text-center">
 
                 <h3 class="fw-semibold text-danger mb-4">
-                    Are you sure you want to log out?
+                    {% trans "Are you sure you want to log out?" %}
                 </h3>
 
                 <form method="POST" action="{% url 'account_logout' %}" class="d-grid gap-3">
@@ -20,11 +21,11 @@
                     {{ form|crispy }}
 
                     <button type="submit" class="btn btn-danger btn-lg rounded-pill">
-                        Log Out
+                        {% trans "Log Out" %}
                     </button>
 
                     <a href="{% url 'home' %}" class="btn btn-outline-success btn-lg rounded-pill">
-                        Cancel
+                        {% trans "Cancel" %}
                     </a>
                 </form>
 

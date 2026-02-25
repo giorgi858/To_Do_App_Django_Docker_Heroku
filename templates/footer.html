@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <footer class="footer mt-5">
     <div class="container py-5">
 
@@ -5,21 +7,21 @@
 
             <!-- Brand / Description -->
             <div class="col-md-6 mb-4 mb-md-0">
-                <h5 class="fw-semibold mb-2">To-Do App</h5>
+                <h5 class="fw-semibold mb-2">{% trans "To-Do App" %}</h5>
                 <p class="text-muted mb-0">
-                    A simple and elegant way to organize your daily tasks.
+                    {% trans "A simple and elegant way to organize your daily tasks." %}
                 </p>
             </div>
 
             <!-- Quick Links -->
             <div class="col-md-6 text-md-end">
-                <h6 class="fw-semibold mb-3">Quick Links</h6>
+                <h6 class="fw-semibold mb-3">{% trans "Quick Links" %}</h6>
                 <ul class="list-unstyled mb-0">
                     <li class="mb-2">
-                        <a href="/" class="footer-link">Home</a>
+                        <a href="/" class="footer-link">{% trans "Home" %}</a>
                     </li>
                     <li>
-                        <a href="{% url 'about' %}" class="footer-link">About</a>
+                        <a href="{% url 'about' %}" class="footer-link">{% trans "About" %}</a>
                     </li>
                 </ul>
             </div>
@@ -30,12 +32,11 @@
 
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
             <p class="text-muted mb-2 mb-md-0">
-                &copy; {% now "Y" %} To-Do App. All rights reserved.
+                &copy; {% now "Y" %} {% trans "To-Do App. All rights reserved." %}
             </p>
-
-            <small class="text-muted">
-                Built with ❤️ using Django
-            </small>
+<small class="text-muted">
+    {% blocktrans %}Built with ❤️ using Django{% endblocktrans %}
+</small>
         </div>
 
     </div>

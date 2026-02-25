@@ -30,6 +30,11 @@ msgstr "ქართული"
 msgid "About the Idea"
 msgstr "იდეის შესახებ"
 
+#: templates/footer.html
+msgid "To-Do App. All rights reserved."
+msgstr "To-Do აპი. ყველა უფლება დაცულია."
+
+
 #: templates/about.html:8
 msgid "A simple and thoughtful way to organize your daily tasks."
 msgstr "გონივრული და მარტივი გზა ყოველდღიური დავალებების ორგანიზებისთვის."
@@ -50,8 +55,6 @@ msgstr "გჭირდებათ სწრაფი ინფორმაც�
 msgid "Start Now"
 msgstr "დაიწყე ახლავე"
 
-
-
 #: templates/account/email_confirm.html:4
 #: templates/account/email_confirm.html:13
 msgid "Confirm Email Address"
@@ -66,8 +69,8 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"                            გთხოვთ დაადასტუროთ, რომ <strong>%(email)s</"
-"strong> თქვენი ელფოსტის მისამართია.\n"
+"                            გთხოვთ დაადასტუროთ, რომ <strong>%(email)s</strong> "
+"თქვენი ელფოსტის მისამართია.\n"
 "                        "
 
 #: templates/account/email_confirm.html:27
@@ -88,27 +91,319 @@ msgstr "დავალებების აპლიკაცია"
 
 #: templates/navbar.html:33
 msgid "All Tasks"
-msgstr ""
+msgstr "ყველა დავალება"
 
 #: templates/navbar.html:89
 msgid "Change Password"
-msgstr ""
+msgstr "პაროლის შეცვლა"
 
 #: templates/navbar.html:94
 msgid "Change Username"
-msgstr ""
+msgstr "მომხმარებლის სახელის შეცვლა"
 
 #: templates/navbar.html:100
 msgid "Logout"
-msgstr ""
+msgstr "გამოსვლა"
 
 #: templates/navbar.html:109
 msgid "Login"
-msgstr ""
+msgstr "შესვლა"
 
 #: templates/navbar.html:116
 msgid "Sign Up"
+msgstr "რეგისტრაცია"
+
+msgid "About"
+msgstr "შესახებ"
+
+#: templates/home.html:12
+msgid "Welcome back, %(username)s 😊"
+msgstr "კეთილი დაბრუნება, %(username)s 😊"
+
+#: templates/home.html:15
+msgid "Ready to organize your tasks and stay focused?"
+msgstr "გზად ხართ თქვენი დავალებების ორგანიზებისა და კონცენტრაციისთვის?"
+
+#: templates/home.html:18
+msgid "Go to your To-Do List"
+msgstr "გადადით თქვენს დავალებათა სიაში"
+
+#: templates/home.html:22
+msgid "Organize Your Day, Effortlessly"
+msgstr "გაიგონივრული თქვენი დღის ორგანიზება"
+
+#: templates/home.html:25
+msgid "A simple and elegant way to plan, track, and complete your daily tasks."
+msgstr "მარტივი და ელეგანტური გზა დაგეგმოთ, აკონტროლოთ და შეასრულოთ ყოველდღიური დავალებები"
+
+#: templates/home.html:29
+msgid "Get Started"
+msgstr "დაიწყეთ"
+
+#: templates/home.html:32
+msgid "Learn More"
+msgstr "გაიგეთ მეტი"
+
+#: templates/home.html:40
+msgid "To Do App"
+msgstr "დავალებების აპი"
+
+#: templates/todo_list.html:25
+msgid "Created"
+msgstr "შექმნილია"
+
+#: templates/todo_list.html:30
+msgid "Updated"
+msgstr "განახლებულია"
+
+#: templates/todo_list.html:43
+msgid "No tasks yet"
+msgstr "დავალებები ჯერ არ არის"
+
+#: templates/todo_list.html:46
+msgid "Start by creating your first task"
+msgstr "დაიწყეთ თქვენი პირველი დავალების შექმნით"
+
+#: templates/todo_list.html:49
+msgid "Create a Task"
+msgstr "დავალების შექმნა"
+
+
+msgid "A simple and elegant way to organize your daily tasks."
+msgstr "მარტივი და ელეგანტური გზა ყოველდღიური საქმეების დასაორგანიზებლად."
+
+msgid "Quick Links"
+msgstr "სწრაფი ბმულები"
+
+msgid "Home"
+msgstr "მთავარი"
+
+msgid "Built with ❤️ using Django"
+msgstr "შექმნილია ❤️-ით Django-ს გამოყენებით"
+
+msgid "Delete Task"
+msgstr "დავალების წაშლა"
+
+msgid ""
+"Are you sure you want to delete the task:\n"
+"                        <strong>%(title)s</strong>?"
 msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ დავალების წაშლა:\n"
+"                        <strong>%(title)s</strong>?"
+
+msgid "Delete"
+msgstr "წაშლა"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: templates/account/password_change.html
+msgid "Update your password to keep your account secure."
+msgstr "განაახლეთ პაროლი თქვენი ანგარიშის უსაფრთხოების შესანარჩუნებლად."
+
+#: templates/account/password_change.html
+msgid "Update Password"
+msgstr "პაროლის განახლება"
 
 
+#: templates/account/username_change.html
+msgid "Update your username to personalize your account"
+msgstr "განაახლეთ თქვენი სახელი თქვენი ანგარიშის პერსონალიზაციისთვის"
+
+#: templates/account/username_change.html
+msgid "Update Username"
+msgstr "სახელის განახლება"
+
+#: templates/account/username_change.html
+msgid "Want to go back?"
+msgstr "მინდა უკან დავბრუნდე?"
+
+msgid "Log Out"
+msgstr "გასვლა"
+
+#: templates/account/logout.html
+msgid "Are you sure you want to log out?"
+msgstr "დარწმუნებული ხართ, რომ გსურთ გასვლა?"
+
+#: templates/todo.html
+msgid "To-Do List"
+msgstr "გასაკეთებელი საქმეების სია"
+
+#: templates/todo.html
+msgid "Quick Google Search"
+msgstr "სწრაფი Google ძიება"
+
+#: templates/todo.html
+msgid "Search while planning your tasks..."
+msgstr "გსურთ ძებნა დავგეგმოთ თქვენს ამოცანებზე..."
+
+#: templates/todo.html
+msgid "Search"
+msgstr "ძიება"
+
+#: templates/todo.html
+msgid "Create a New Task"
+msgstr "ახალი ამოცანის შექმნა"
+
+#: templates/todo.html
+msgid "Save Task"
+msgstr "ამოცანის შენახვა"
+
+
+#: templates/todo.html
+msgid "Edit"
+msgstr "რედაქტირება"
+
+#: templates/todo.html
+msgid "No tasks yet. Start by creating one above ✨"
+msgstr "ჯერ არ არის ამოცანები. დაიწყეთ ერთი შესაქმნელად ზემოთ ✨"
+
+#: templates/task_edit.html
+msgid "Edit Task"
+msgstr "ამოცანის რედაქტირება"
+
+#: templates/task_edit.html
+msgid "Update your task details below"
+msgstr "განაახლეთ თქვენი ამოცანის დეტალები ქვემოთ"
+
+#: templates/task_edit.html
+msgid "Save Changes"
+msgstr "ცვლილებების შენახვა"
+
+#: templates/signup.html
+msgid "Create Account"
+msgstr "ანგარიშის შექმნა"
+
+#: templates/signup.html
+msgid "Join us and start organizing your tasks"
+msgstr "შემოგვიერთდით და დაიწყეთ თქვენი ამოცანების ორგანიზება"
+
+#: templates/signup.html
+msgid "Already have an account?"
+msgstr "უკვე გაქვთ ანგარიში?"
+
+#: templates/signup.html
+msgid "Log in"
+msgstr "შესვლა"
+
+#: templates/login.html
+msgid "Log In"
+msgstr "შესვლა"
+
+#: templates/login.html
+msgid "Welcome Back"
+msgstr "კეთილი დაბრუნება"
+
+#: templates/login.html
+msgid "Sign in to continue to your account"
+msgstr "მომხმარებლის ანგარიშში შესასვლელად შეხვიდეთ"
+
+#: templates/login.html
+msgid "Forgot Password?"
+msgstr "დაგავიწყდათ პაროლი?"
+
+#: templates/login.html
+msgid "Don’t have an account?"
+msgstr "შესაძლებელია არ გაქვთ ანგარიში?"
+
+#: templates/login.html
+msgid "Register"
+msgstr "რეგისტრაცია"
+
+#: templates/password_reset.html
+msgid "Forgot Password"
+msgstr "დაგავიწყდათ პაროლი"
+
+#: templates/password_reset.html
+msgid "Forgot your password?"
+msgstr "დაგავიწყდათ თქვენი პაროლი?"
+
+#: templates/password_reset.html
+msgid "Enter your email and we’ll send you a reset link"
+msgstr "შეიყვანეთ თქვენი იმეილი და ჩვენ გამოგიგზავნით პაროლის განახლების ბმულს"
+
+#: templates/password_reset.html
+msgid "Send reset link"
+msgstr "გაგზავნეთ განახლების ბმული"
+
+#: templates/password_reset.html
+msgid "← Back to login"
+msgstr "← დაბრუნება შესვლაზე"
+
+#: templates/password_reset_sent.html
+msgid "Password Reset Sent"
+msgstr "პაროლის განახლების ბმული გაგზავნილია"
+
+#: templates/password_reset_sent.html
+msgid "Check your email"
+msgstr "შეამოწმეთ თქვენი იმეილი"
+
+#: templates/password_reset_sent.html
+msgid "If an account exists for the email you entered, we’ve sent instructions to reset your password."
+msgstr "თუ იმეილისთვის არსებობს ანგარიში, ჩვენ გამოგიგზავნეთ ინსტრუქციები პაროლის განახლებისთვის."
+
+#: templates/password_reset_sent.html
+msgid "Please check your inbox and spam folder."
+msgstr "გთხოვთ შეამოწმოთ შემომავალი და სპამის საქაღალდე."
+
+#: templates/password_reset_sent.html
+msgid "Back to Login"
+msgstr "დაბრუნება შესვლაზე"
+
+#: templates/password_updated.html
+msgid "Password Updated"
+msgstr "პაროლი განახლებულია"
+
+#: templates/password_updated.html
+msgid "Your password has been changed successfully. You can now sign in using your new credentials."
+msgstr "თქვენი პაროლი წარმატებით შეიცვალა. ახლა შეგიძლიათ შეხვიდეთ ახალი მონაცემებით."
+
+#: templates/password_updated.html
+msgid "Go to Login"
+msgstr "შესვლაზე წასვლა"
+
+#: templates/set_new_password.html
+msgid "Set New Password"
+msgstr "ახალი პაროლის განსაზღვრა"
+
+#: templates/set_new_password.html
+msgid "Choose a secure password to protect your account"
+msgstr "მოიფიქრეთ უსაფრთხო პაროლი თქვენი ანგარიშის დასაცავად"
+
+#: templates/set_new_password.html
+msgid "This password reset link is invalid or has expired."
+msgstr "ეს პაროლის განახლების ბმული შეუსაბამოა ან ვადა გაუვიდა."
+
+#: templates/set_new_password.html
+msgid "Request a new reset link"
+msgstr "მოთხოვნა ახალი განახლების ბმულის"
+
+#: templates/set_new_password.html
+msgid "Back to login"
+msgstr "დაბრუნება შესვლაზე"
+
+#: templates/verify_email.html
+msgid "Verify Your Email"
+msgstr "აიდენტიფიკაცია ელექტრონული ფოსტით"
+
+#: templates/verify_email.html
+msgid "Verify your email"
+msgstr "დაადასტურეთ თქვენი ელექტრონული ფოსტა"
+
+#: templates/verify_email.html
+msgid "We’ve sent a verification link to your email address. Please click the link to complete your registration."
+msgstr "ჩვენ გამოგიგზავნეთ ვალიდაციის ბმული თქვენი ელფოსტის მისამართზე. გთხოვთ, დააკლიკეთ ბმულზე რეგისტრაციის დასრულებისთვის."
+
+#: templates/verify_email.html
+msgid "If you don’t see the email, check your spam folder."
+msgstr "თუ წერილი არ ჩანს, შეამოწმეთ სპამის საქაღალდე."
+
+#: templates/verify_email.html
+msgid "Go to Home"
+msgstr "მთავარ გვერდზე გადასვლა"
+
+
+#: templates/confirm_email.html
+msgid "Please confirm that <strong>{{ email }}</strong> is your email address."
+msgstr "გთხოვთ, დაადასტუროთ, რომ <strong>{{ email }}</strong> არის თქვენი ელფოსტის მისამართი."
 
