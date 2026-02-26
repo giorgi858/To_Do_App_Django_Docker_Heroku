@@ -41,7 +41,7 @@ msgstr "გონივრული და მარტივი გზა ყ�
 
 #: templates/about.html:11
 msgid "This application is designed to help you focus on what truly matters by keeping your tasks clear and organized."
-msgstr "ეს აპლიკაცია დაგეხმარებათ ფოკუსში დარჩეთ იმაზე, რაც მართლა მნიშვნელოვანია, დავალებების გასაგებად და ორგანიზებულად შენარჩუნებით."
+msgstr "ეს აპლიკაცია დაგეხმარებათ ყურადღება მიაპყრო იმაზე, რაც მართლა მნიშვნელოვანია, დავალებების შესანახად და ორგანიზებისთვის."
 
 #: templates/about.html:15
 msgid "You can create tasks, add descriptions, edit them anytime, or remove them once completed."
@@ -49,7 +49,7 @@ msgstr "შეგიძლიათ შექმნათ დავალებ�
 
 #: templates/about.html:19
 msgid "Need quick information while planning? Use the built-in Google search to stay productive 😉"
-msgstr "გჭირდებათ სწრაფი ინფორმაცია დაგეგმვის დროს? გამოიყენეთ ჩაშენებული Google ძიება, რათა პროდუქტიულები დარჩეთ 😉"
+msgstr "გჭირდებათ რაიმე სახის ინფორმაცია დაგეგმვის დროს? გამოიყენეთ ჩაშენებული Google-ის ძიება, რათა პროდუქტიულები დარჩეთ 😉"
 
 #: templates/about.html:24
 msgid "Start Now"
@@ -87,7 +87,7 @@ msgstr "ელფოსტის მისამართების მარ�
 
 #: templates/base.html:24 templates/navbar.html:9
 msgid "To-Do App"
-msgstr "დავალებების აპლიკაცია"
+msgstr "To-Do App"
 
 #: templates/navbar.html:33
 msgid "All Tasks"
@@ -113,24 +113,24 @@ msgstr "შესვლა"
 msgid "Sign Up"
 msgstr "რეგისტრაცია"
 
-msgid "About"
-msgstr "შესახებ"
+msgid "About The Idea"
+msgstr "იდეის შესახებ"
 
 #: templates/home.html:12
 msgid "Welcome back, %(username)s 😊"
-msgstr "კეთილი დაბრუნება, %(username)s 😊"
+msgstr "მოგესალმებით, %(username)s 😊"
 
 #: templates/home.html:15
 msgid "Ready to organize your tasks and stay focused?"
-msgstr "გზად ხართ თქვენი დავალებების ორგანიზებისა და კონცენტრაციისთვის?"
+msgstr "მზად ხართ თქვენი დავალებების ორგანიზებისთვის? დარჩი აქტიური და დაიწყე To-do ლისტის გაკეთება."
 
 #: templates/home.html:18
 msgid "Go to your To-Do List"
-msgstr "გადადით თქვენს დავალებათა სიაში"
+msgstr "გადადით თქვენს To-Do ლისტის სიაში"
 
 #: templates/home.html:22
 msgid "Organize Your Day, Effortlessly"
-msgstr "გაიგონივრული თქვენი დღის ორგანიზება"
+msgstr "გაიმარტივზე ცხოვრება და დააორგანიზე შენი დღე."
 
 #: templates/home.html:25
 msgid "A simple and elegant way to plan, track, and complete your daily tasks."
@@ -146,7 +146,7 @@ msgstr "გაიგეთ მეტი"
 
 #: templates/home.html:40
 msgid "To Do App"
-msgstr "დავალებების აპი"
+msgstr "To Do აპი"
 
 #: templates/todo_list.html:25
 msgid "Created"
@@ -216,7 +216,7 @@ msgstr "სახელის განახლება"
 
 #: templates/account/username_change.html
 msgid "Want to go back?"
-msgstr "მინდა უკან დავბრუნდე?"
+msgstr "გინდათ მთავარ გვერდზე დაბრუნება?"
 
 msgid "Log Out"
 msgstr "გასვლა"
@@ -231,11 +231,11 @@ msgstr "გასაკეთებელი საქმეების სი�
 
 #: templates/todo.html
 msgid "Quick Google Search"
-msgstr "სწრაფი Google ძიება"
+msgstr "სწრაფი ძიება Google-ში"
 
 #: templates/todo.html
 msgid "Search while planning your tasks..."
-msgstr "გსურთ ძებნა დავგეგმოთ თქვენს ამოცანებზე..."
+msgstr "მოიძიე ინფორმაცია თქვენი To-do ლისტის შესახებ"
 
 #: templates/todo.html
 msgid "Search"
@@ -255,8 +255,8 @@ msgid "Edit"
 msgstr "რედაქტირება"
 
 #: templates/todo.html
-msgid "No tasks yet. Start by creating one above ✨"
-msgstr "ჯერ არ არის ამოცანები. დაიწყეთ ერთი შესაქმნელად ზემოთ ✨"
+msgid "No tasks yet. start creating new one. ✨"
+msgstr "ჯერ არ არის ამოცანები. დაიწყეთ შექმნა ახლის. ✨"
 
 #: templates/task_edit.html
 msgid "Edit Task"
@@ -292,11 +292,11 @@ msgstr "შესვლა"
 
 #: templates/login.html
 msgid "Welcome Back"
-msgstr "კეთილი დაბრუნება"
+msgstr "კეთილი იყოს თქვენი დაბრუნება"
 
 #: templates/login.html
 msgid "Sign in to continue to your account"
-msgstr "მომხმარებლის ანგარიშში შესასვლელად შეხვიდეთ"
+msgstr "მომხმარებლის ანგარიშში შესასვლელად შეიყვანეთ მონაცემები."
 
 #: templates/login.html
 msgid "Forgot Password?"
@@ -304,7 +304,7 @@ msgstr "დაგავიწყდათ პაროლი?"
 
 #: templates/login.html
 msgid "Don’t have an account?"
-msgstr "შესაძლებელია არ გაქვთ ანგარიში?"
+msgstr "არ გაქვთ ანგარიში?"
 
 #: templates/login.html
 msgid "Register"
@@ -344,7 +344,7 @@ msgstr "თუ იმეილისთვის არსებობს ან
 
 #: templates/password_reset_sent.html
 msgid "Please check your inbox and spam folder."
-msgstr "გთხოვთ შეამოწმოთ შემომავალი და სპამის საქაღალდე."
+msgstr "გთხოვთ შეამოწმოთ inbox და spam საქაღალდე."
 
 #: templates/password_reset_sent.html
 msgid "Back to Login"
@@ -382,9 +382,6 @@ msgstr "მოთხოვნა ახალი განახლების 
 msgid "Back to login"
 msgstr "დაბრუნება შესვლაზე"
 
-#: templates/verify_email.html
-msgid "Verify Your Email"
-msgstr "აიდენტიფიკაცია ელექტრონული ფოსტით"
 
 #: templates/verify_email.html
 msgid "Verify your email"
