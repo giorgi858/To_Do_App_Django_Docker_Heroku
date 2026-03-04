@@ -1,0 +1,104 @@
+@host = http://localhost:8000
+@api = {{host}}/en/api
+@auth = {{api}}/token
+
+#################################################
+### 🔐 AUTHENTICATION
+#################################################
+
+### Login (Get Access + Refresh Tokens)
+# @name login
+POST {{auth}}/
+Content-Type: application/json
+
+{
+  "username": "vasiko",
+  "password": "vasiko12345"
+}
+
+###
+
+@access = {{login.response.body.access}}
+@refresh = {{login.response.body.refresh}}
+
+###
+
+### Refresh Access Token
+# @name refreshToken
+POST {{auth}}/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "{{refresh}}"
+}
+
+###
+
+#################################################
+### 👤 DJANGO SESSION LOGIN (Optional - Allauth)
+#################################################
+
+### Login Page (Browser-based auth)
+GET {{host}}/en/accounts/login/
+
+###
+
+### Logout
+GET {{host}}/en/accounts/logout/
+
+###
+
+#################################################
+### 📝 TODOS (User Must Be Authenticated)
+#################################################
+
+### Get All Todos (Only Logged-in User)
+GET {{api}}/todos/
+Authorization: Bearer {{access}}
+
+###
+
+### Get Single Todo
+GET {{api}}/todos/14/
+Authorization: Bearer {{access}}
+
+###
+
+### Create Todo
+POST {{api}}/todos/
+Content-Type: application/json
+Authorization: Bearer {{access}}
+
+{
+  "title": "Learn Docker deeply",
+  "description": "Understand volumes, networks, production setup"
+}
+
+###
+
+### Update Todo (PUT)
+PUT {{api}}/todos/14/
+Content-Type: application/json
+Authorization: Bearer {{access}}
+
+{
+  "title": "Updated title",
+  "description": "Updated description"
+}
+
+###
+
+### Partial Update (PATCH)
+PATCH {{api}}/todos/14/
+Content-Type: application/json
+Authorization: Bearer {{access}}
+
+{
+  "is_completed": true
+}
+
+###
+
+### Delete Todo
+DELETE {{api}}/todos/15/
+Authorization: Bearer {{access}}
