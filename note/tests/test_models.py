@@ -1,6 +1,26 @@
-from django.test import TestCase
+from django.test import TestCase, SimpleTestCase
+from django.contrib.auth.models import User
+from note.models import Todo
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.utils import translation
+
+
+class TodoModelTest(TestCase):
+    def setUp(self):
+        self.author = User.objects.create_user(
+            username='giorgi',
+            password='12345'
+        )
+    def test_create_todo(self):
+        todo = Todo.objects.create(
+            author = self.author,
+            title = 'Test Title',
+            description = "Test Description"
+        )
+        self.assertEqual(todo.title, 'Test Title')
+        
+        
 
 class CustomerUserTests(TestCase):
     def test_create_superuser(self):
@@ -41,8 +61,14 @@ class CustomerUserTests(TestCase):
         self.assertTrue(user.check_password("testpass123"))
 
         
-class ViewTest(TestCase):
-    def test_home_page(self):
+class HomePageTests(SimpleTestCase):
+    def setUp(self):
+        translation.activate('en')
         url = reverse('home')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
+        self.response = self.client.get(url)
+        
+    def test_url_exists_at_correct_location(self):
+        self.assertEqual(self.response.status_code, 200)
+
+        
+        
