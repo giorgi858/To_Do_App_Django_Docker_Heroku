@@ -22,10 +22,14 @@ class NoteLIstCreateAPIView(generics.ListCreateAPIView):
             print(serializer.errors)
     
 class NoteDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Todo.objects.all().order_by('-id')
     serializer_class = TodoSerializer
     lookup_url_kwarg = 'product_id'
+    permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        user = self.request.user
+        return Todo.objects.filter(author=user)
+    
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
