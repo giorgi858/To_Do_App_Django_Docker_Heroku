@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from environs import Env
 from datetime import timedelta
 from django.utils.translation import gettext_lazy as _
+from celery.schedules import crontab
 
 env = Env()
 env.read_env()
@@ -58,6 +59,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_framework',
+    "django_celery_beat",
+
 
 
       
@@ -261,6 +264,23 @@ SESSION_SAVE_EVERY_REQUEST = True
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = "redis://redis:6379/0"
+
+CELERY_ACCEPT_CONTENT = ["json"]
+
+CELERY_TASK_SERIALIZER = "json"
+
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
+
+
+
+CELERY_BEAT_SCHEDULE = {
+    "test-every-minute": {
+        "task": "note.tasks.test_task",
+        "schedule": 60.0,
+    },
+}
 
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)

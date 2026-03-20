@@ -5,6 +5,13 @@ from django.urls import reverse_lazy
 
 from .forms import TodoForm, UsernameChangeForm
 from .models import Todo
+from celery import shared_task
+
+
+@shared_task
+def test_task():
+    print("Celery works!")
+
 
 # -----------------------------
 # Home & About Pages
