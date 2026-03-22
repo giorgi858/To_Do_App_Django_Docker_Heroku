@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+   <center>
+    <div class="col-10">
+     <br/><br/>
+
+</div><br/><br/>
+          <div class="row gx-4 gx-lg-5 row-cols-2
+        row-cols-md-3 row-cols-xl-4 justify-content-center">
+        {% if searched_todo %}
+            {% for product in searched_todo %}
+
+<div class="col mb-5">
+    <div class="card h-100">
+        <!-- Product image-->
+        <img class="card-img-top" src="{{ product.image.url }}" alt="..." />
+        <!-- Product details-->
+        <div class="card-body p-4">
+            <div class="text-center">
+                <!-- Product name-->
+                <h5 class="fw-bolder">{{ product.title }}</h5>
+                <!-- Product price-->
+                {{ product.description }}
+            </div>
+        </div>
+
+    </div>
+</div>
+        {% endfor %}
+        {% else %}
+
+
+       <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <span>Details unavailable</span>
+
+        </div>
+    </div>
+</section>
+
+        {% endif %}
+              </div>
+   </center>
+    </div>
+    <br/>
+   </center>
+  </div>
+</div>
+
+
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+
+{% endblock %}

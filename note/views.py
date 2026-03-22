@@ -7,6 +7,23 @@ from .forms import TodoForm, UsernameChangeForm
 from .models import Todo
 from celery import shared_task
 from django.core.paginator import Paginator
+from django.views.generic import ListView
+from django.db.models import Q
+
+class SearchResultListView(ListView):
+    model = Todo
+    context_object_name = "searched_todo"
+    template_name = 'search_result.html'
+    
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if 'q' in self.request.GET and not self.request.GET.get('q').strip():
+            return redirect(self.request.path)
+        return Todo.objects.filter(
+            Q(title__icontains=query)
+        )
+
+
 
 @shared_task
 def test_task():

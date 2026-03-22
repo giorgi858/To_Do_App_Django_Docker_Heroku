@@ -33,6 +33,14 @@
                             {% trans "All Tasks" %}
                         </a>
                     </li>
+
+                          <form class="d-lg-none mt-3 mb-2" action="" method="get">
+          <input class="form-control rounded-pill px-3" 
+                 name="q" 
+                 type="search" 
+                 placeholder="{% trans 'Search your Task' %}">
+        </form>
+        
                 {% endif %}
 
                 <li class="nav-item">
@@ -42,6 +50,23 @@
                 </li>
 
             </ul>
+
+                {% if user.is_authenticated %}
+
+        <!-- Search -->
+        <form class="d-none d-lg-flex m-2" action="{% url 'search_results' %}" method="get">
+          <input class="form-control form-control-sm rounded-pill px-3"
+                 name="q"
+                 type="search"
+                 placeholder="Search your Task's title"
+                 style="width: 280px;">
+        </form>
+
+                {% endif %}
+
+
+
+
 
             <!-- Right Links -->
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
