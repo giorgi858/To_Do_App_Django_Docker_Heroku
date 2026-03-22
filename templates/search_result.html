@@ -1,66 +1,75 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Search" %}
+{% endblock title %}
+
 
 {% block content %}
 
-<div class="container">
-  <div class="row">
-   <center>
-    <div class="col-10">
-     <br/><br/>
+<div class="container py-5">
 
-</div><br/><br/>
-          <div class="row gx-4 gx-lg-5 row-cols-2
-        row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <h2 class="text-center mb-4">
+        {% trans "Search Results" %}
+    </h2>
+
+    <div class="row justify-content-center">
+
         {% if searched_todo %}
-            {% for product in searched_todo %}
 
-<div class="col mb-5">
-    <div class="card h-100">
-        <!-- Product image-->
-        <img class="card-img-top" src="{{ product.image.url }}" alt="..." />
-        <!-- Product details-->
-        <div class="card-body p-4">
-            <div class="text-center">
-                <!-- Product name-->
-                <h5 class="fw-bolder">{{ product.title }}</h5>
-                <!-- Product price-->
-                {{ product.description }}
+            <div class="row gx-4 gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+
+                {% for todo in searched_todo %}
+
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold">
+                                    {{ todo.title }}
+                                </h5>
+
+                                <p class="text-muted">
+                                    {{ todo.description }}
+                                </p>
+                                                <small class="text-muted d-block">
+                        {% trans "Created" %} · {{ todo.created_at|date:"d M Y" }}
+                    </small>
+
+                    {% if todo.updated_at|date:"U" != todo.created_at|date:"U" %}
+                        <small class="text-muted d-block">
+                            {% trans "Updated" %} · {{ todo.updated_at|date:"d M Y" }}
+                        </small>
+                    {% endif %}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                {% endfor %}
+
             </div>
-        </div>
 
-    </div>
-</div>
-        {% endfor %}
         {% else %}
 
+            <div class="text-center mt-5">
 
-       <section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        <span>Details unavailable</span>
+                <h4 class="text-muted">
+                    {% trans "Details unavailable" %}
+                </h4>
 
-        </div>
-    </div>
-</section>
+                <p>
+                    {% trans "Nothing was found for your search." %}
+                </p>
+
+            </div>
 
         {% endif %}
-              </div>
-   </center>
+
     </div>
-    <br/>
-   </center>
-  </div>
+
 </div>
-
-
-
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-
 
 {% endblock %}
