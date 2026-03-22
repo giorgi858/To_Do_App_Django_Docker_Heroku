@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from .forms import TodoForm, UsernameChangeForm
 from .models import Todo
 from celery import shared_task
-
+from django.core.paginator import Paginator
 
 @shared_task
 def test_task():
@@ -52,16 +52,23 @@ def todolistView(request):
     """
     todos = Todo.objects.filter(author=request.user)
     form = TodoForm(request.POST or None)
+   
+
 
     if request.method == "POST" and form.is_valid():
         todo = form.save(commit=False)
         todo.author = request.user
         todo.save()
         return redirect("todo")  # refresh page
+    
+    paginator = Paginator(todos, 3) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     context = {
         "todos": todos,
         "form": form,
+        'page_obj': page_obj
     }
     return render(request, "todo.html", context)
 
