@@ -60,9 +60,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_framework',
     "django_celery_beat",
-
-
-
+    'django.contrib.sites',
+    'djcelery_email',
       
 ]
 
@@ -77,7 +76,8 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_SESSION_REMEMBER = True
 LOGIN_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
 
 SITE_ID = 1
 # settings.py
@@ -265,12 +265,10 @@ SESSION_SAVE_EVERY_REQUEST = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Celery Settings
 CELERY_BROKER_URL = "redis://redis:6379/0"
-
 CELERY_ACCEPT_CONTENT = ["json"]
-
 CELERY_TASK_SERIALIZER = "json"
-
 CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
 
@@ -281,6 +279,7 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": 60.0,
     },
 }
+ACCOUNT_ADAPTER = 'note.adapter.CeleryAccountAdapter'
 
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)

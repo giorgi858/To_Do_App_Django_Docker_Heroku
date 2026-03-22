@@ -17,3 +17,4 @@ djangorestframework==3.16.1
 celery
 redis
 django-celery-beat
+django-celery-email 
