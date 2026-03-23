@@ -19,38 +19,62 @@
 
         {% if searched_todo %}
 
-            <div class="row gx-4 gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
 
-                {% for todo in searched_todo %}
+    <!-- Todo List -->
+    {% for todo in searched_todo %}
+        <div class="card border-0 shadow-sm rounded-4 mb-3">
+            <div class="card-body p-4">
 
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body text-center">
-                                <h5 class="fw-bold">
-                                    {{ todo.title }}
-                                </h5>
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h5 class="fw-semibold mb-1">
+                            {{ todo.title }}
+                        </h5>
 
-                                <p class="text-muted">
-                                    {{ todo.description }}
-                                </p>
-                                                <small class="text-muted d-block">
-                        {% trans "Created" %} · {{ todo.created_at|date:"d M Y" }}
-                    </small>
+                        {% if todo.description %}
+                            <p class="text-muted mb-2">
+                                {{ todo.description }}
+                            </p>
+                        {% endif %}
 
-                    {% if todo.updated_at|date:"U" != todo.created_at|date:"U" %}
                         <small class="text-muted d-block">
-                            {% trans "Updated" %} · {{ todo.updated_at|date:"d M Y" }}
+                            {% trans "Created" %} · {{ todo.created_at|date:"d M Y" }}
                         </small>
-                    {% endif %}
 
-                            </div>
-
-                        </div>
+                        {% if todo.updated_at|date:"U" != todo.created_at|date:"U" %}
+                            <small class="text-muted d-block">
+                                {% trans "Updated" %} · {{ todo.updated_at|date:"d M Y" }}
+                            </small>
+                        {% endif %}
                     </div>
 
-                {% endfor %}
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a
+                            href="{% url 'edit_task' todo.id %}"
+                            class="btn btn-outline-primary"
+                        >
+                            {% trans "Edit" %}
+                        </a>
+                        <a
+                            href="{% url 'product_delete' todo.id %}"
+                            class="btn btn-outline-danger"
+                        >
+                            {% trans "Delete" %}
+                        </a>
+                    </div>
+                </div>
 
             </div>
+        </div>
+    {% empty %}
+        <div class="text-center text-muted mt-5">
+            <p class="fs-5 mb-0">
+                {% trans "No tasks yet. Start by creating one above ✨" %}
+            </p>
+        </div>
+    {% endfor %}
+
+
 
         {% else %}
 
