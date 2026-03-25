@@ -263,16 +263,21 @@ SESSION_SAVE_EVERY_REQUEST = True
 # -----------------------
 # CELERY
 # -----------------------
+import os
 
-CELERY_BROKER_URL = os.getenv(
-    "REDIS_URL",
-    "redis://redis:6379/0"
-)
+# 1. Get the URL from Heroku environment variables
+REDIS_URL = os.environ.get("REDIS_URL")
 
-CELERY_RESULT_BACKEND = os.getenv(
-    "REDIS_URL",
-    "redis://redis:6379/0"
-)
+# 2. Add SSL options (This is why you were getting the 500 error)
+if REDIS_URL and REDIS_URL.startswith("rediss://"):
+    # This prevents the "SSL Certificate Verify Failed" error on Heroku
+    CELERY_BROKER_URL = f"{REDIS_URL}?ssl_cert_reqs=none"
+    CELERY_RESULT_BACKEND = f"{REDIS_URL}?ssl_cert_reqs=none"
+else:
+    # Use local settings if REDIS_URL is not found (for your local computer)
+    CELERY_BROKER_URL = REDIS_URL or "redis://localhost:6379/0"
+    CELERY_RESULT_BACKEND = REDIS_URL or "redis://localhost:6379/0"
+
 
 CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_TASK_SERIALIZER = "json"
