@@ -22,6 +22,12 @@ ALLOWED_HOSTS = env.list(
     "DJANGO_ALLOWED_HOSTS",
     default=[".herokuapp.com"]
 )
+# in local
+
+# ALLOWED_HOSTS = env.list(
+#     "DJANGO_ALLOWED_HOSTS",
+#     default=["*"]
+# )
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -105,6 +111,8 @@ INSTALLED_APPS = [
 
 
 SITE_ID = 1
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 # -----------------------
@@ -139,7 +147,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],  
+        "DIRS": ["templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -167,6 +175,17 @@ DATABASES = {
         default=os.getenv("DATABASE_URL")
     )
 }
+# in local DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PWD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT'),
+#     }
+# }
+
 
 # -----------------------
 # STATIC
@@ -277,6 +296,10 @@ else:
     # Use local settings if REDIS_URL is not found (for your local computer)
     CELERY_BROKER_URL = REDIS_URL or "redis://localhost:6379/0"
     CELERY_RESULT_BACKEND = REDIS_URL or "redis://localhost:6379/0"
+    
+# in local
+# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", "redis://redis:6379/0")
+# CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", "redis://redis:6379/0")
 
 
 CELERY_ACCEPT_CONTENT = ["json"]
