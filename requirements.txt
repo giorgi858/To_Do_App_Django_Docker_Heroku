@@ -18,3 +18,4 @@ celery
 redis
 django-celery-beat
 django-celery-email 
+dj-database-url

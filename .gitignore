@@ -2,3 +2,6 @@ env
 .env
 .DS_Store
 celerybeat-schedule
+.env.prod
+.env.local
+__pycache__/
