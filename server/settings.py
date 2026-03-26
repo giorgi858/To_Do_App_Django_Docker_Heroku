@@ -28,6 +28,7 @@ ALLOWED_HOSTS = env.list(
 #     "DJANGO_ALLOWED_HOSTS",
 #     default=["*"]
 # )
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
