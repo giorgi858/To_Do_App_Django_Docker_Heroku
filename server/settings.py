@@ -214,8 +214,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = "home"
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SESSION_REMEMBER = True
 
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
@@ -228,7 +226,7 @@ ACCOUNT_SIGNUP_FIELDS = [
     "password1*",
     "password2*",
 ]
-
+    
 
 # -----------------------
 # EMAIL
@@ -236,10 +234,19 @@ ACCOUNT_SIGNUP_FIELDS = [
 
 # EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Keep login via username
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+
+# User MUST provide an email during signup so you have someone to send the link to
+ACCOUNT_EMAIL_REQUIRED = True
+
+
+# This ensures the same email isn't used for multiple accounts
+ACCOUNT_UNIQUE_EMAIL = True
 
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
